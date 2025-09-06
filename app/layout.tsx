@@ -29,14 +29,15 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 
-const isV0 = process.env['VERCEL_URL']?.includes('vusercontent.net') ?? false
+const isV0 = process.env["VERCEL_URL"]?.includes("vusercontent.net") ?? false;
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Mekong",
-    default: "Mekong",
+    template: "%s | Panoptic",
+    default: "Panoptic",
   },
-description:"",    generator: 'v0.app'
+  description: "",
+  generator: "v0.app",
 };
 
 export default function RootLayout({
@@ -45,16 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          geistSans.variable,
-          geistMono.variable,
-          instrumentSerif.variable,
-          montserrat.variable,
-          "font-sans",
-        )}
-      >
+    <html lang='en'>
+      <body className={cn(geistSans.variable, geistMono.variable, instrumentSerif.variable, montserrat.variable, "font-sans")}>
         <V0Provider isV0={isV0}>
           {children}
           {isV0 && <V0Setup />}
